@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="boxes">
+    @if (boxes$ | async; as boxes) {
+      @for (box of boxes; track trackByBoxId($index, box)) {
+        <app-box-component
+          [box]="box"
+          [index]="$index"
+        ></app-box-component>
+      } }
+  </div>
+
+  <div
+    class="d-flex justify-content-end align-items-center flex-wrap flex-column"
+  >
+    <button class="clear-button" (click)="clearAllSelections()">
+      Clear All
+    </button>
+    <div class="d-flex">
+      Total values : <br />
+      {{ selectedCount$ | async }}
+    </div>
+  </div>
+</div>

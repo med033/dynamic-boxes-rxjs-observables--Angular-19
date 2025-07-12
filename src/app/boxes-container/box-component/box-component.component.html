@@ -1,0 +1,9 @@
+<div class="box" [class.selected]="box.selected" [class.empty]="!box.selected" (click)="selectBox(index)"
+  [class.active]="(selectedBoxIndex$ | async) === index">
+  @if (box.selected) {
+  <span class="box-name">{{ getOptionValue(box.optionid,options) }}</span>
+  <div class="selection-indicator"></div>
+  } @else {
+  <span class="slot-number">{{ index + 1 }}</span>
+  }
+</div>

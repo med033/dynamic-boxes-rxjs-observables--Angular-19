@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
+import { BoxContainerComponent } from './boxes-container/container/box-container.component';
+import { OptionsComponent } from './options/options.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
-    HeaderComponent,
-    ContentComponent
+    BoxContainerComponent,
+    OptionsComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

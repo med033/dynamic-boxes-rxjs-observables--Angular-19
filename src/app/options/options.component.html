@@ -1,0 +1,10 @@
+<div class="content-container" @gridAnimation>
+  @if (((selectedBoxIndex$ | async) ?? -1) > -1) {
+  @for (column of distributeIntoColumns(options); track trackByColumn) {
+  <div class="column">
+    @for (option of column; track trackByBoxId) {
+    <app-box-option [option]="option"></app-box-option>
+    }
+  </div>
+  }}
+</div>

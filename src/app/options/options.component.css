@@ -17,11 +17,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-.no-fonts-message {
-  width: 100%;
-  text-align: center;
-  color: #888;
-  font-size: 1.1rem;
-  padding: 32px 0;
-}
