@@ -1,0 +1,14 @@
+<div class="content-container" @gridAnimation>
+  <!-- Only show options grid if a box is selected -->
+  @if (((selectedBoxIndex$ | async) ?? -1) > -1) {
+    <!-- Distribute options into columns for grid layout -->
+    @for (column of distributeIntoColumns(options); track trackByColumn) {
+      <div class="column">
+        <!-- Render each option in the column using the BoxOption component -->
+        @for (option of column; track trackByBoxId) {
+          <app-box-option [option]="option"></app-box-option>
+        }
+      </div>
+    }
+  }
+</div>

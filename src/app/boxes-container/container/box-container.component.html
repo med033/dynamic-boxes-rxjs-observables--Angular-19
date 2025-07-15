@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="boxes">
+    <!-- Display all boxes using the async pipe and new Angular control flow syntax -->
+    @if (boxes$ | async; as boxes) {
+    <!-- Iterate over each box and render the BoxComponent -->
+    @for (box of boxes; track trackByBoxId($index, box)) {
+    <app-box-component [box]="box" [index]="$index"></app-box-component>
+    } }
+  </div>
+
+  <div
+    class="d-flex justify-content-end align-items-center flex-wrap flex-column"
+  >
+    <!-- Button to clear all box selections -->
+    <button class="clear-button" (click)="clearAllSelections()">
+      Clear All
+    </button>
+    <div class="d-flex">
+      <!-- Display the total value of selected boxes -->
+      Total values : <br />
+      {{ selectedCount$ | async }}
+    </div>
+  </div>
+</div>
