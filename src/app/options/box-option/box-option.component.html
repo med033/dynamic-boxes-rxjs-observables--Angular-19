@@ -1,12 +1,18 @@
-<div class="option" [class.selected]="(optionId$ | async) === option.id" (click)="selectOption()"
-  [@selectionAnimation]="option.selected">
+<div
+  class="option"
+  [class.selected]="(optionId$ | async) === option.id"
+  (click)="selectOption()"
+  [@selectionAnimation]="option.selected"
+>
   <div class="option-header">
+    <!-- Show selection indicator if this option is currently selected -->
     @if((optionId$ | async) === option.id){
-    <div class="selection-indicator"></div>
+      <div class="selection-indicator"></div>
     }
   </div>
 
   <div class="option-sample">
+    <!-- Display the option's value -->
     {{ option.value }}
   </div>
 </div>

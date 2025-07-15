@@ -1,9 +1,16 @@
-<div class="box" [class.selected]="box.selected" [class.empty]="!box.selected" (click)="selectBox(index)"
+<!--
+  Box display component.
+  - Shows either the selected option's value or the index number.
+  - Applies CSS classes based on selection and active state.
+  - Handles click to select the box.
+--><div class="box" [class.selected]="box.selected" [class.empty]="!box.selected" (click)="selectBox(index)"
   [class.active]="(selectedBoxIndex$ | async) === index">
   @if (box.selected) {
-  <span class="box-name">{{ getOptionValue(box.optionid,options) }}</span>
-  <div class="selection-indicator"></div>
+    <!-- Show the selected option's value and indicator if box is selected -->
+    <span class="box-name">{{ getOptionValue(box.optionid, options) }}</span>
+    <div class="selection-indicator"></div>
   } @else {
-  <span class="slot-number">{{ index + 1 }}</span>
+    <!-- Show the index number if box is not selected -->
+    <span class="slot-number">{{ index + 1 }}</span>
   }
 </div>
