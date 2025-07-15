@@ -1,4 +1,4 @@
-.font-square {
+.option {
   background-color: var(--neutral-100);
   border-radius: var(--border-radius-md);
   padding: 2px 4px;
@@ -15,29 +15,23 @@
   flex: 0 0 auto;
 }
 
-.font-square:hover {
+.option:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.font-square.selected {
+.option.selected {
   background-color: var(--primary-color);
   color: white;
   box-shadow: var(--shadow-md);
 }
 
-.font-square-header {
+.option-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2px;
   position: relative;
-}
-
-.font-name {
-  font-size: 0.6rem;
-  font-weight: 500;
-  margin: 0;
 }
 
 .selection-indicator {
@@ -48,24 +42,11 @@
   box-shadow: var(--shadow-sm);
 }
 
-.font-sample {
+.option-sample {
   font-size: 1rem;
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.font-squares-container {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-}
-
-.font-squares-column {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
-  gap: 4px;
 }
