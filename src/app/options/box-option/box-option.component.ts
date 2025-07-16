@@ -19,6 +19,7 @@ import { BoxesService } from "../../boxes-container/boxes.service";
   templateUrl: "./box-option.component.html",
   styleUrls: ["./box-option.component.css"],
   animations: [
+    // Animation for selection changes
     trigger("selectionAnimation", [
       transition(":enter", [
         style({ transform: "scale(0.95)", opacity: 0 }),
@@ -33,26 +34,35 @@ import { BoxesService } from "../../boxes-container/boxes.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BoxComponent implements OnDestroy {
+  // The option to display in this component
   @Input() option!: Option;
+
+  // Index of the currently selected box
   selectedBoxIndex: number = -1;
 
+  // Subscription to the selected box index observable
   private selectedBoxIndexSub = this.boxesService.selectedBoxIndex$.subscribe(
     (index) => {
       this.selectedBoxIndex = index;
-      this.cdr.markForCheck();
+      this.cdr.markForCheck(); // Trigger change detection when index changes
     }
   );
+
+  // Observable for the currently selected option ID
   optionId$ = this.optionsService.optionId$;
 
   constructor(
-    private optionsService: OptionsService,
-    private cdr: ChangeDetectorRef,
-    private boxesService: BoxesService
+    private optionsService: OptionsService, 
+    private cdr: ChangeDetectorRef,         
+    private boxesService: BoxesService      
   ) {}
+
+  // Unsubscribe from observables when component is destroyed
   ngOnDestroy(): void {
     this.selectedBoxIndexSub.unsubscribe();
   }
 
+  // Called when this option is clicked; fills the selected box with this option
   selectOption(): void {
     this.boxesService.fillBoxWithOption(this.option.id);
   }
